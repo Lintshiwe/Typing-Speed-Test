@@ -34,6 +34,16 @@ mvn -Djavafx.platform=win javafx:run
 
 Alternatively, in VS Code you can run the **Run Maven Tests** task (created in `.vscode/tasks.json`) to re-run the verification build, then use the same command above to start the UI.
 
+## Build a Windows Installer
+
+Creating an `.exe` installer uses `jpackage` and requires the [WiX Toolset](https://wixtoolset.org/) (version 3.x). Install WiX and add its `bin` directory (containing `candle.exe` and `light.exe`) to your `PATH`, then run:
+
+```bash
+mvn -Pinstaller -Djavafx.platform=win clean verify
+```
+
+After a successful run, the signed application image and installer are placed under `target/installer`.
+
 ## Educational Design
 
 - Warmups target foundational muscle memory (home row drills, number reach).
@@ -44,7 +54,7 @@ Each completed session records statistics and coaching tips, encouraging learner
 
 ## Project Structure
 
-```
+```text
 src/main/java/com/typingspeed/model      // Shared Java model classes
 src/main/java/com/typingspeed/lesson     // Lesson catalogue seeded in Java
 src/main/kotlin/com/typingspeed          // Kotlin UI and session logic

@@ -68,6 +68,7 @@ class TypingTutorApp : Application() {
     private var sessionWarningIssued = false
     private var appLogo: Image? = null
     private var tourOverlay: StackPane? = null
+    private val stageIconSizes = listOf(16.0, 32.0, 48.0, 64.0, 128.0, 256.0)
     private val originalEffects = mutableMapOf<Node, Effect?>()
 
     private val themeClasses = mapOf(
@@ -77,9 +78,8 @@ class TypingTutorApp : Application() {
     )
 
     override fun start(stage: Stage) {
-        appLogo = loadAppLogo()
-        stage.icons.clear()
-        appLogo?.let { stage.icons.add(it) }
+    appLogo = loadAppLogo()
+    stage.icons.setAll(loadStageIcons())
         stage.title = "Typing Speed Test"
 
         showSplash(stage) {
@@ -158,8 +158,14 @@ class TypingTutorApp : Application() {
     }
 
     private fun loadAppLogo(): Image? {
-        val resource = javaClass.getResource("/images/app-logo.png") ?: return null
+        val resource = javaClass.getResource("/images/TypeFast.png") ?: return null
         return Image(resource.toExternalForm())
+    }
+
+    private fun loadStageIcons(): List<Image> {
+        val resource = javaClass.getResource("/images/TypeFast.png") ?: return emptyList()
+        val url = resource.toExternalForm()
+        return stageIconSizes.map { size -> Image(url, size, size, true, true) }
     }
 
     override fun stop() {
