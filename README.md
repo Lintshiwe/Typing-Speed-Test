@@ -1,68 +1,123 @@
 # Typing Speed Tutor
 
-Typing Speed Tutor is a Windows desktop application that blends an interactive typing speed test with guided lessons. The experience is built with JavaFX for the user interface, uses both Java and Kotlin for the application logic, and emphasises accuracy-first habits for developing keyboarding fluency.
+Typing Speed Tutor is a JavaFX desktop application for Windows that blends fast typing drills with guided lessons. Kotlin drives the UI flow and session handling, while Java provides the shared domain model and lesson catalogue. The app emphasises accuracy-first habits so learners build repeatable muscle memory before accelerating their words per minute.
 
-## Features
+## Latest Release
 
-- **Quick Test tab** – run short practice or assessment sessions with instant feedback on words per minute, accuracy, and error counts.
-- **Lesson Paths tab** – browse curated learning modules with coaching notes that reinforce posture, accuracy, and pacing fundamentals.
-- **Progress tab** – review recorded sessions in a sortable table and receive adaptive coaching prompts based on recent performance.
-- **Cross-language codebase** – Kotlin powers the JavaFX UI and session logic, while Java provides the lesson library and shared model classes.
-- **Unit-tested metrics** – typing metrics such as WPM and accuracy are covered by JUnit tests to ensure reliable feedback for learners.
+- **Version:** `v0.1.0` (commit `90d7c3f`), published by @Lintshiwe
+- **Key updates:** TypeFast-branded splash screen, guided onboarding tour, refreshed theme, multi-phase typing sessions with countdown alerts, and adaptive coaching tips.
+- **Installer:** [Typing.Speed.Test-0.1.0.msi](https://github.com/Lintshiwe/Typing-Speed-Test/releases/download/v0.1.0/Typing.Speed.Test-0.1.0.msi) – 42.1 MB (SHA-256 `f05ed3c2699a86f00c66fa0996b4620a8c0276ad92ce444c181ce3acce38481c`)
+- **Source archives:** [zip](https://github.com/Lintshiwe/Typing-Speed-Test/archive/refs/tags/v0.1.0.zip) · [tar.gz](https://github.com/Lintshiwe/Typing-Speed-Test/archive/refs/tags/v0.1.0.tar.gz)
 
-## Requirements
+## Table of Contents
 
-- Java 17 or newer (set `JAVA_HOME` accordingly)
+- [Latest Release](#latest-release)
+- [Highlights](#highlights)
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+- [Build & Test](#build--test)
+- [Run the App](#run-the-app)
+- [Package a Windows Installer](#package-a-windows-installer)
+- [Educational Design](#educational-design)
+- [Project Layout](#project-layout)
+- [Roadmap](#roadmap)
+- [Troubleshooting](#troubleshooting)
+
+## Highlights
+
+- **Quick Test tab** – run precision drills or assessments with instant WPM, accuracy, and error feedback.
+- **Lesson Paths tab** – browse curated modules with coaching notes covering posture, rhythm, and deliberate pacing.
+- **Progress tab** – review captured sessions in a sortable table and receive adaptive coaching prompts based on trends.
+- **Cross-language codebase** – Kotlin powers the JavaFX UI and session logic; Java supplies reusable models and the seeded lesson library.
+- **Unit-tested metrics** – WPM, accuracy, and error statistics are covered by JUnit tests for trustworthy feedback.
+
+## Prerequisites
+
+- Java 17 or newer (ensure `JAVA_HOME` points to this JDK)
 - Maven 3.9+
-- Windows desktop (the bundled JavaFX binaries target `win` classifiers)
+- Windows 10/11 desktop (JavaFX dependencies are resolved with the `win` classifier)
 
-## Build and Test
+Optional tooling:
+
+- [WiX Toolset 3.x](https://wixtoolset.org/) for packaging `.exe` installers with `jpackage`
+- VS Code tasks (already committed) for running Maven verify cycles from the Command Palette
+
+## Quick Start
+
+1. Clone the repository and open it in VS Code.
+2. Ensure `JAVA_HOME` is set to your JDK 17+ installation.
+3. Resolve dependencies and run the verification build:
+   ```bash
+   mvn -Djavafx.platform=win clean verify
+   ```
+4. Launch the JavaFX application:
+   ```bash
+   mvn -Djavafx.platform=win javafx:run
+   ```
+
+## Build & Test
+
+The default build compiles Kotlin and Java sources, runs unit tests, and verifies JavaFX resources:
 
 ```bash
 mvn -Djavafx.platform=win test
 ```
 
-This command compiles Kotlin and Java sources and executes the JUnit test suite.
+In VS Code you can trigger the preconfigured **Run Maven Tests** task for the same cycle.
 
-## Launch the Application
+## Run the App
 
-Use the JavaFX Maven plugin to run the desktop app:
+Use the JavaFX Maven plugin to start the desktop UI:
 
 ```bash
 mvn -Djavafx.platform=win javafx:run
 ```
 
-Alternatively, in VS Code you can run the **Run Maven Tests** task (created in `.vscode/tasks.json`) to re-run the verification build, then use the same command above to start the UI.
+The command launches the application with the correct JavaFX platform modules on Windows. If you encounter lingering JVM or JavaFX processes during development, use `scripts/clean_target_and_kill.bat` to terminate stray runs and clear the Maven `target` directory.
 
-## Build a Windows Installer
+## Package a Windows Installer
 
-Creating an `.exe` installer uses `jpackage` and requires the [WiX Toolset](https://wixtoolset.org/) (version 3.x). Install WiX and add its `bin` directory (containing `candle.exe` and `light.exe`) to your `PATH`, then run:
+Bundling distributable installers uses `jpackage` in conjunction with the WiX Toolset 3.x. Generate an `.exe` installer with:
 
 ```bash
 mvn -Pinstaller -Djavafx.platform=win clean verify
 ```
 
-After a successful run, the signed application image and installer are placed under `target/installer`.
+Or build the `.msi` installer that ships with the GitHub release:
+
+```bash
+mvn -Pinstaller-msi -Djavafx.platform=win clean verify
+```
+
+Add `-Djpackage.verbose=true` if you need additional diagnostics. After a successful build, inspect `target/installer` for the signed application image and both installer formats.
 
 ## Educational Design
 
-- Warmups target foundational muscle memory (home row drills, number reach).
-- Accuracy builders emphasise tricky spelling, punctuation timing, and deliberate tempo.
-- Fluency runs provide longer passages with mindfulness prompts to reinforce breathing and rhythm.
+- **Warmups** focus on home-row muscle memory, finger reach comfort, and posture cues.
+- **Accuracy builders** emphasise tricky spelling, punctuation timing, and deliberate tempo adjustments.
+- **Fluency runs** introduce longer passages with mindfulness reminders that reinforce breathing and rhythm.
 
-Each completed session records statistics and coaching tips, encouraging learners to reflect on accuracy before increasing speed.
+Every completed session captures statistics and contextual coaching tips, prompting learners to reflect on accuracy before pushing speed goals.
 
-## Project Structure
+## Project Layout
 
 ```text
-src/main/java/com/typingspeed/model      // Shared Java model classes
-src/main/java/com/typingspeed/lesson     // Lesson catalogue seeded in Java
-src/main/kotlin/com/typingspeed          // Kotlin UI and session logic
-src/test/kotlin/com/typingspeed          // JUnit tests for metrics
+src/main/java/com/typingspeed/model      // Shared Java domain models
+src/main/java/com/typingspeed/lesson     // Java-based lesson catalogue seed data
+src/main/kotlin/com/typingspeed          // Kotlin JavaFX UI and session orchestration
+src/test/kotlin/com/typingspeed          // JUnit tests covering metrics and helpers
+scripts/clean_target_and_kill.bat        // Utility script to reset local dev state on Windows
 ```
 
-## Next Steps
+## Roadmap
 
-- Expand the lesson catalogue with age- or topic-specific modules.
-- Persist session history (e.g., JSON or embedded database) to track long-term growth.
-- Add adaptive difficulty that schedules lessons based on recent accuracy trends.
+- Expand the lesson catalogue with age-specific or thematic content.
+- Persist session histories (e.g., JSON or embedded database) to track long-term progress.
+- Introduce adaptive difficulty that schedules lessons based on recent accuracy trends.
+- Add export/share options so learners can review their progress outside the app.
+
+## Troubleshooting
+
+- **Build fails with missing JavaFX modules** – verify `JAVA_HOME` targets JDK 17+ and the `-Djavafx.platform=win` flag is present.
+- **Installer build cannot find `candle.exe`/`light.exe`** – ensure the WiX Toolset `bin` directory is on your `PATH` before invoking the installer profile.
+- **App relaunch fails after a crash** – run `scripts/clean_target_and_kill.bat` to stop orphaned processes and clean the build output.
