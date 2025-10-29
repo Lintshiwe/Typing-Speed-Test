@@ -97,9 +97,11 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>${javafx.version}</version>
+                <version>0.0.8</version>
                 <configuration>
                     <mainClass>com.typingspeed.ui.TypingTutorAppKt</mainClass>
+                    <launcher>typing-speed-tutor</launcher>
+                    <stripNativeCommands>false</stripNativeCommands>
                 </configuration>
             </plugin>
             <plugin>

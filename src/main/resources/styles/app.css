@@ -1,0 +1,376 @@
+.app-root {
+  -fx-font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  -fx-padding: 0;
+  padding: 0;
+}
+
+.hero-banner {
+  -fx-background-color: linear-gradient(
+    to right,
+    rgba(42, 111, 151, 0.92),
+    rgba(64, 181, 173, 0.85)
+  );
+  background: linear-gradient(
+    to right,
+    rgba(42, 111, 151, 0.92),
+    rgba(64, 181, 173, 0.85)
+  );
+  background-color: rgba(42, 111, 151, 0.92);
+  -fx-background-radius: 12;
+  border-radius: 12px;
+  -fx-padding: 18 28 18 28;
+  padding: 18px 28px;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.18), 16, 0.2, 0, 6);
+  -fx-text-fill: white;
+  color: white;
+}
+
+.hero-banner .headline {
+  -fx-font-size: 24px;
+  font-size: 24px;
+  -fx-font-weight: 600;
+  font-weight: 600;
+}
+
+.hero-banner .subheadline {
+  -fx-font-size: 14px;
+  font-size: 14px;
+  -fx-opacity: 0.85;
+  opacity: 0.85;
+}
+
+.card-surface {
+  -fx-background-color: rgba(255, 255, 255, 0.82);
+  background-color: rgba(255, 255, 255, 0.82);
+  -fx-background-radius: 12;
+  -fx-border-radius: 12;
+  border-radius: 12px;
+  -fx-padding: 16;
+  padding: 16px;
+  -fx-border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.phase-label {
+  -fx-text-fill: #1f3a4d;
+  color: #1f3a4d;
+  -fx-font-style: italic;
+  font-style: italic;
+}
+
+.timer-label {
+  -fx-text-fill: #234f70;
+  color: #234f70;
+  -fx-font-weight: 600;
+  font-weight: 600;
+}
+
+.timer-warning {
+  -fx-text-fill: #d97706;
+  color: #d97706;
+}
+
+.timer-progress {
+  -fx-accent: #40b5ad;
+}
+
+.timer-progress .bar {
+  -fx-background-radius: 6;
+  border-radius: 6px;
+}
+
+.nav-coach-panel {
+  -fx-spacing: 12;
+}
+
+.nav-coach-panel .section-title {
+  -fx-font-size: 16px;
+  font-size: 16px;
+  -fx-font-weight: 600;
+  font-weight: 600;
+}
+
+.nav-coach-panel .coach-label {
+  -fx-text-fill: #2a6f97;
+  color: #2a6f97;
+}
+
+.advanced-pane .titled-pane > .title {
+  -fx-background-color: rgba(255, 255, 255, 0.55);
+  background-color: rgba(255, 255, 255, 0.55);
+  -fx-padding: 12;
+  padding: 12px;
+  -fx-font-weight: 600;
+  font-weight: 600;
+}
+
+.advanced-pane .titled-pane > *.content {
+  -fx-background-color: transparent;
+  background-color: transparent;
+  -fx-padding: 12;
+  padding: 12px;
+}
+
+.status-bar {
+  -fx-background-color: rgba(42, 111, 151, 0.1);
+  background-color: rgba(42, 111, 151, 0.1);
+  -fx-padding: 10 16 10 16;
+  padding: 10px 16px;
+  -fx-border-color: rgba(42, 111, 151, 0.15);
+  border-color: rgba(42, 111, 151, 0.15);
+  -fx-border-width: 1 0 0 0;
+  border-width: 1px 0 0 0;
+  -fx-alignment: CENTER_LEFT;
+  -fx-spacing: 12;
+}
+
+.status-bar Label {
+  -fx-text-fill: #1f3a4d;
+  color: #1f3a4d;
+}
+
+.countdown-overlay {
+  -fx-background-color: rgba(15, 23, 42, 0.75);
+  background-color: rgba(15, 23, 42, 0.75);
+  -fx-alignment: center;
+}
+
+.countdown-label {
+  -fx-font-size: 72px;
+  font-size: 72px;
+  -fx-font-weight: 700;
+  font-weight: 700;
+  -fx-text-fill: #fefefe;
+  color: #fefefe;
+}
+
+.theme-sky {
+  -fx-background-color: linear-gradient(
+    to bottom,
+    #f4fbff 0%,
+    #e4f3ff 55%,
+    #fdfdff 100%
+  );
+  background: linear-gradient(to bottom, #f4fbff 0%, #e4f3ff 55%, #fdfdff 100%);
+  background-color: #f4fbff;
+}
+
+.theme-sky .tour-highlight {
+  -fx-border-color: rgba(251, 191, 36, 0.9);
+  border-color: rgba(251, 191, 36, 0.9);
+}
+
+.theme-midnight {
+  -fx-background-color: linear-gradient(to bottom, #1d1e26 0%, #10111a 100%);
+  background: linear-gradient(to bottom, #1d1e26 0%, #10111a 100%);
+  background-color: #1d1e26;
+}
+
+.theme-midnight .hero-banner {
+  -fx-background-color: linear-gradient(
+    to right,
+    rgba(71, 88, 206, 0.95),
+    rgba(35, 37, 66, 0.9)
+  );
+  background: linear-gradient(
+    to right,
+    rgba(71, 88, 206, 0.95),
+    rgba(35, 37, 66, 0.9)
+  );
+  background-color: rgba(71, 88, 206, 0.95);
+}
+
+.theme-midnight .status-bar Label {
+  -fx-text-fill: #d3dcff;
+  color: #d3dcff;
+}
+
+.theme-midnight .timer-label {
+  -fx-text-fill: #d6dcff;
+  color: #d6dcff;
+}
+
+.theme-midnight .timer-progress {
+  -fx-accent: #5c6cff;
+}
+
+.theme-contrast {
+  -fx-background-color: linear-gradient(to bottom, #fefefe 0%, #f8f9fa 100%);
+  background: linear-gradient(to bottom, #fefefe 0%, #f8f9fa 100%);
+  background-color: #fefefe;
+}
+
+.theme-contrast .timer-label {
+  -fx-text-fill: #111827;
+  color: #111827;
+}
+
+.theme-contrast .timer-progress {
+  -fx-accent: #f97316;
+}
+
+.focus-mode .card-surface {
+  -fx-effect: dropshadow(gaussian, rgba(42, 111, 151, 0.35), 25, 0.25, 0, 0);
+}
+
+.button.cta {
+  -fx-background-color: linear-gradient(to right, #2a6f97, #40b5ad);
+  background: linear-gradient(to right, #2a6f97, #40b5ad);
+  background-color: #2a6f97;
+  -fx-text-fill: white;
+  color: white;
+  -fx-background-radius: 8;
+  border-radius: 8px;
+  -fx-font-weight: 600;
+  font-weight: 600;
+}
+
+.button.cta:hover {
+  -fx-background-color: linear-gradient(to right, #234f70, #2a9c94);
+  background: linear-gradient(to right, #234f70, #2a9c94);
+  background-color: #234f70;
+}
+
+.text-area,
+.list-view {
+  -fx-background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
+  -fx-control-inner-background: rgba(255, 255, 255, 0.95);
+  -fx-background-radius: 10;
+  -fx-border-radius: 10;
+  border-radius: 10px;
+  -fx-border-color: rgba(42, 111, 151, 0.2);
+  border-color: rgba(42, 111, 151, 0.2);
+}
+
+.tab-pane *.tab-header-area {
+  -fx-background-color: transparent;
+  background-color: transparent;
+}
+
+.tab-pane .tab {
+  -fx-background-insets: 0;
+  -fx-background-radius: 8 8 0 0;
+}
+
+.phase-label {
+  -fx-font-size: 13px;
+  font-size: 13px;
+  -fx-text-fill: #245366;
+  color: #245366;
+}
+
+.timer-label {
+  -fx-font-size: 14px;
+  font-size: 14px;
+  -fx-font-weight: 600;
+  font-weight: 600;
+  -fx-text-fill: #1f3a4d;
+  color: #1f3a4d;
+}
+
+.timer-warning {
+  -fx-text-fill: #d97706 !important;
+  color: #d97706 !important;
+}
+
+.timer-progress {
+  -fx-accent: #40b5ad;
+}
+
+.hero-logo {
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 12, 0.2, 0, 3);
+}
+
+.splash-root {
+  -fx-background-color: linear-gradient(to bottom right, #122a44, #1f4f6f);
+  background: linear-gradient(to bottom right, #122a44, #1f4f6f);
+  background-color: #122a44;
+  -fx-alignment: center;
+}
+
+.splash-card {
+  -fx-background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.92);
+  -fx-background-radius: 18;
+  border-radius: 18px;
+  -fx-padding: 28;
+  padding: 28px;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 30, 0.35, 0, 6);
+}
+
+.splash-text {
+  -fx-font-size: 16px;
+  font-size: 16px;
+  -fx-text-fill: #1f3a4d;
+  color: #1f3a4d;
+  -fx-font-weight: 600;
+  font-weight: 600;
+}
+
+.splash-indicator {
+  -fx-progress-color: #40b5ad;
+  -fx-accent: #40b5ad;
+}
+
+.tour-overlay {
+  -fx-alignment: top-left;
+}
+
+.tour-scrim {
+  -fx-fill: rgba(15, 23, 42, 0.55);
+  fill: rgba(15, 23, 42, 0.55);
+}
+
+.tour-card {
+  -fx-background-color: rgba(255, 255, 255, 0.94);
+  background-color: rgba(255, 255, 255, 0.94);
+  -fx-background-radius: 16;
+  border-radius: 16px;
+  -fx-padding: 20;
+  padding: 20px;
+  -fx-spacing: 12;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 18, 0.25, 0, 6);
+}
+
+.tour-card-title {
+  -fx-font-size: 18px;
+  font-size: 18px;
+  -fx-font-weight: 700;
+  font-weight: 700;
+  -fx-text-fill: #12344d;
+  color: #12344d;
+}
+
+.tour-card-body {
+  -fx-text-fill: #1f3a4d;
+  color: #1f3a4d;
+  -fx-font-size: 14px;
+  font-size: 14px;
+}
+
+.tour-counter {
+  -fx-font-size: 12px;
+  font-size: 12px;
+  -fx-text-fill: #456b7a;
+  color: #456b7a;
+}
+
+.tour-highlight {
+  -fx-border-color: rgba(64, 181, 173, 0.8);
+  border-color: rgba(64, 181, 173, 0.8);
+  -fx-border-width: 2;
+  border-width: 2px;
+  -fx-background-insets: 0;
+}
+
+.tour-highlight {
+  -fx-border-color: rgba(251, 191, 36, 0.85);
+  border-color: rgba(251, 191, 36, 0.85);
+  -fx-border-width: 2;
+  border-width: 2px;
+  -fx-background-color: rgba(255, 255, 255, 0.94);
+  background-color: rgba(255, 255, 255, 0.94);
+  -fx-effect: dropshadow(gaussian, rgba(251, 191, 36, 0.55), 28, 0.45, 0, 0);
+}

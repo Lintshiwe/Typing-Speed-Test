@@ -41,7 +41,7 @@ Check https://code.visualstudio.com/docs/debugtest/tasks to determine if the pro
 Skip this step otherwise.
  -->
 
-- [ ] Launch the Project
+- [x] Launch the Project (mvn -Djavafx.platform=win javafx:run)
 <!--
 Verify that all previous steps have been completed.
 Prompt user for debug mode, launch only if confirmed.
